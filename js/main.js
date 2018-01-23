@@ -216,7 +216,7 @@ $(document).ready(function(){
 			}
 		});
 	}
-	if($('.s_works__slider_wrp').length){
+	if($('.s_works__slider_wrp').length || $('.s_works__item').length){
 		var solveSlider = new Swiper('.s_works__slider_wrp',{
 			spaceBetween: 30,
 			slidesPerView: 1,
@@ -522,21 +522,21 @@ $(document).ready(function(){
 	}());
 
 	//lg
-	$('.s_category__item_lg').click(function(e){
-		e.preventDefault();
-		var btn = $(this),
-			imgs = btn.data('imgs'),
-			img = imgs.split(';'),
-			imgArr = [];
-		for(var i = 0; i<img.length;i++){
-			imgArr[i] = {src: img[i]};
-		}
-		console.log(imgArr);
-		$(this).lightGallery({
-			dynamic: true,
-			dynamicEl: imgArr
-		})
-	});
+//	$('.s_category__item_lg').click(function(e){
+//		e.preventDefault();
+//		var btn = $(this),
+//			imgs = btn.data('imgs'),
+//			img = imgs.split(';'),
+//			imgArr = [];
+//		for(var i = 0; i<img.length;i++){
+//			imgArr[i] = {src: img[i]};
+//		}
+//		console.log(imgArr);
+//		$(this).lightGallery({
+//			dynamic: true,
+//			dynamicEl: imgArr
+//		})
+//	});
 
 	//prevent only numbers
 	var eBackspace = jQuery.Event("keydown", { keyCode: 20 });
