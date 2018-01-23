@@ -2171,6 +2171,9 @@ _inner
 	background-color: $bg;
 	&__body{
 		@include flex(sb,s);
+		+.s_works__item{
+			margin-bottom: 4.5rem;
+		}
 	}
 	&__aside{
 		min-width: 320px;
