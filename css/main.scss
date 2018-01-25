@@ -1293,7 +1293,7 @@ hr{
 		&_tel{
 			font-weight: 700;
 			color: #626167;
-			font-size: 1rem;
+			font-size: 1.25rem;
 			@include h_center($h:2px);
 			&s{
 				@include flex(fs,c);
@@ -1451,6 +1451,8 @@ hr{
 .s_main{
 	background-color: $bg;
 	overflow: hidden;
+	background-position: center;
+	background-size: cover;
 	&__body{
 		@include flex(sb,s);
 	}
@@ -1477,9 +1479,6 @@ hr{
 			display: block;
 			position: relative;
 			@include h_left();
-			&:hover{
-				color: $b;
-			}
 			&:not(:last-of-type){
 				margin-bottom: 15px;
 			}
@@ -1496,8 +1495,7 @@ hr{
 				transition: $t;
 				transform:  rotate(45deg) translate(-15px,15px);
 			}
-			&._current{
-				pointer-events: none;
+			&:hover{
 				span{
 					&:before{
 						width: 100%;
@@ -1522,6 +1520,21 @@ hr{
 	&__item{
 		@include flex(sb,c);
 		&_txt{
+			position: relative;
+			z-index: 0;
+			&:before{
+				content: '';
+				position: absolute;
+				background-image: radial-gradient();
+				left: -100px;
+				top: -50px;
+				width: calc(100% + 100px);
+				pointer-events: none;
+				height: calc(100% + 100px);
+				z-index: -1;
+				background: radial-gradient(ellipse at center, rgba(246,251,254,1) 0%, rgba(251,253,255,0.65) 40%, rgba(255,255,255,0) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6fbfe', endColorstr='#ffffff', GradientType=1 );
+			}
 			h3{
 				text-transform: uppercase;
 			}
@@ -2557,6 +2570,11 @@ _inner
 		&:not(:last-of-type){
 			margin-bottom: 60px;
 		}
+		&:hover{
+			h3{
+				color: $g;
+			}
+		}
 		h3{
 			font-family: "Muller Extra Bold";
 			color: $b;
@@ -2564,6 +2582,7 @@ _inner
 			text-transform: uppercase;
 			margin-bottom: 20px;
 			padding-top: 10px;
+			transition: $t;
 		}
 	}
 	&__body{
@@ -2577,8 +2596,18 @@ _inner
 		width: calc(33.33333% - 30px);
 		margin: 15px;
 		padding: 20px;
+		transition: $t;
 		&:hover{
-			box-shadow: 0 0.313rem 0.813rem rgba($g, 0.2);
+			box-shadow: 0 0.313rem 0.813rem rgba($g, 0.3);
+			h4{
+				color: $g;
+			}
+			i{
+				border-color: rgba($b,.2);
+				&:before{
+					border-color: transparent transparent transparent $b;
+				}
+			}
 		}
 		&_img{
 			height: 172px;
@@ -2605,6 +2634,7 @@ _inner
 				line-height: 1.2;
 				margin-bottom: -.3rem;
 				margin-top: 7px;
+				transition: $t;
 			}
 			i{
 				width: 40px;
@@ -3244,6 +3274,25 @@ _inner
 	}
 }
 
+//404
+.s_404{
+	@include flex(c,c);
+	text-align: center;
+	background-color: $bg;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	&__txt{
+		max-width: 700px;
+		padding-bottom: 2rem;
+		h1{
+			font-size: 14rem;
+			color: $b;
+			line-height: 1;
+			margin-bottom: 0;
+		}
+	}
+}
 
 .overlay{
 	position: fixed;
@@ -4348,6 +4397,15 @@ a img.aligncenter {
 				strong{
 					font-size: 1.1rem;
 				}
+			}
+		}
+	}
+	//404
+	.s_404{
+		min-height: 300px;
+		.g_txt{
+			h1{
+				font-size: 4rem;
 			}
 		}
 	}
