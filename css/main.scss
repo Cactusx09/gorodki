@@ -1525,7 +1525,6 @@ hr{
 			&:before{
 				content: '';
 				position: absolute;
-				background-image: radial-gradient();
 				left: -100px;
 				top: -50px;
 				width: calc(100% + 100px);
@@ -1533,10 +1532,10 @@ hr{
 				height: calc(100% + 100px);
 				z-index: -1;
 				background: radial-gradient(ellipse at center, rgba(246,251,254,1) 0%, rgba(251,253,255,0.65) 40%, rgba(255,255,255,0) 100%);
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6fbfe', endColorstr='#ffffff', GradientType=1 );
 			}
 			h3{
 				text-transform: uppercase;
+				font-size: 2.4rem;
 			}
 			p{
 				color: #626167;
